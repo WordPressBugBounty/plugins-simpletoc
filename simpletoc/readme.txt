@@ -1,13 +1,13 @@
 === SimpleTOC - Table of Contents Block ===
 Contributors: MarcDK
-Tags: TOC, Table of Contents, Gutenberg, Block, Accessibility
+Tags: TOC, Table of Contents, Block, Accessibility, Table
 Requires at least: 5.9
-Donate link: https://marc.tv/out/donate
-Tested up to: 6.8
-Stable tag: 6.7.3
-Requires PHP: 7.0
+Tested up to: 6.9
+Stable tag: 6.9.6
+Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Donate link: https://marc.tv/out/donate
 
 SEO-friendly Table of Contents Gutenberg block. No JavaScript and no CSS means faster loading.
 
@@ -17,13 +17,22 @@ Add a Table of Contents block to your posts and pages. The TOC is a nested list 
 
 The maximum depth of the toc can be configured in in the blocks' sidebar among many other options. There can hide the headline "Table of Contents" and add your own by using a normal heading block.  
 
-SimpleTOC is open-source and developed on [GitHub Pages](https://github.com/mtoensing/SimpleTOC). If you find a bug or have an idea for a feature please feel free to contribute and create a pull request. 
-
 [Spin up](https://demo.tastewp.com/simpletoc) a new WordPress instance with the SimpleTOC plugin already installed.
+
+= User Feedback =
+
+> "It is lightweight, stable, and fully compatible with WordPress Full Site Editing. A reliable solution that integrates seamlessly and performs exactly as expected."
+— [@js100 on wordpress.org](https://wordpress.org/support/topic/good-job-1889/)
+
+> "Does the job perfectly, and adds no bloat."
+— [@clicknathan on wordpress.org](https://wordpress.org/support/topic/does-the-job-perfectly-and-adds-no-bloat/)
+
+> "Simple yet powerful. Great plugin that does exactly what you need."
+— [@mixey on wordpress.org](https://wordpress.org/support/topic/simple-yet-powerful-106/)
 
 = Accessibility =
 
-This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugin is tested with assistive technology and intended to be accessible, however some third party plugins or themes may affect the individual accessibility on a given website. If you find an accessibility issue, please let us know and we'll try to address it promptly.
+This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugin is tested with assistive technology and intended to be accessible, however some third party plugins or themes may affect the individual accessibility on a given website. If you find an accessibility issue, please [let us know](https://github.com/mtoensing/simpletoc/issues) and we'll try to address it promptly.
 
 = Features =
 
@@ -35,6 +44,7 @@ This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugi
 * Style SimpleTOC with Gutenberg's native group styling options.
 * Inherits the style of your theme.
 * Smooth scrolling effect using CSS. 
+* Accessibility built-in by following web standards.
 * Optional ARIA Label and navigation role attributes.
 * Translated in [multiple languages](https://translate.wordpress.org/projects/wp-plugins/simpletoc/). Including German, Japanese, Chinese (Taiwan), Dutch, Brazilian Portuguese, French, Spanish and Latvia.
 * Ideal for creating a Frequently Asked Questions section on your website.
@@ -54,7 +64,27 @@ This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugi
 * GeneratePress and Rank Math support.
 * Works with popular AMP plugins.
 
+= How to contribute = 
+
+SimpleTOC is open-source and developed on [GitHub Pages](https://github.com/mtoensing/SimpleTOC). If you find a bug or have an idea for a feature please feel free to contribute and create a pull request. 
+
 == Changelog ==
+
+= 6.9.6 =
+* Added: Coding standards cleanup with improved rules, cleaner code, safer output, and consistent naming. Thanks @ronalfy
+* Added: Minimum PHP version requirement set to 7.3
+
+= 6.9.4 =
+* Added: Introduced proper PHP namespaces to avoid class and function name conflicts and improve overall code robustness. Thanks @ronalfy.
+* Added: Improved sidebar sub-menu for the “Hide SimpleTOC” option
+
+= 6.9.3 =
+* Fix: Fix Multiple IDs in Table of Contents Thanks @ronalfy
+* Added: Support for GenerateBlocks 2.1.0 Thanks @ronalfy
+
+= 6.9.1 =
+* Added: Support for the new V3 block api. 
+* Added: Tested compatibility with WordPress 6.9
 
 = 6.7.3 =
 * Added: Tested compatibility with WordPress 6.8
@@ -62,48 +92,6 @@ This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugi
 = 6.7.2 = 
 * Added: Support for GenerateBlocks 2.0. Thanks @blronaldhuereca 
 * Added: Included an accessibility statement in the plugin description. Thanks Gen Herres.
-
-= 6.6.1 = 
-* Added: Initialize the JavaScript for the TOC accordion on page load or after the document has fully loaded. Thanks blronaldhuereca https://github.com/mtoensing/simpletoc/pull/63 
-
-= 6.6.0 =
-* Added: Tested compatibility with WordPress 6.7
-
-= 6.5.6 =
-* Fixed: All script versions have been updated to prevent caching issues.
-* Fixed: Legacy Accordion was always expanded. Thanks Francesco Palmieri.
-* Added: Updated dependencies for improved performance and stability.​
-* Added: Tested compatibility with WordPress 6.6
-
-= 6.4.3 =
-* Added: A pointer cursor on hover for the hidden TOC
-
-= 6.4.3 =
-* Added: Utilizes the browser's built-in details tag for a collapsible interface. Thanks @infinitnet
-* Compatibility with WordPress 6.5
-* Fixed: Minor localization problems.   
-
-= 6.3.2 =
-* Fixed: Option for automatic refresh did not work in some instances.
-
-= 6.3.0 =
-* Added: Option for automatic refresh. This can be disabled in the blocks advanced settings.
-* Added: Option to globally disable automatic refresh in the WordPress SimpleTOC settings.
-
-= 6.2.0 =
-* Added: Implemented smooth animation for improved user interaction in the accordion menu.
-* Added: Upgraded styling of the accordion menu for a more visually appealing and modern user experience.
-
-= 6.1.0 =
-* Fixed: Broken markup when tags closed for headers below minimum. Thanks @harmoney !
-
-= 6.0.10 =
-* Added aria-hidden attribute to icon in accordion. Thanks Alex Stine!
-
-= 6.0.9 =
-* Added ARIA accessibility labels for the accordion. Thanks Amber Hinds!
-* Fixed: Caching of accordion JavaScript. Thanks jghitchcock!
-* Added correct ARIA controls attribute.
 
 == Installation ==
 
@@ -175,5 +163,7 @@ I don’t see an easy solution at the moment. SimpleTOC is only a block that can
 This plugin is forked from [pdewouters](https://github.com/pdewouters/gutentoc) and uses code from [Easy-Table-of-Contents](https://github.com/shazahm1/Easy-Table-of-Contents)
 
 Many thanks to [Tom J Nowell](https://tomjn.com) and and Sally CJ who both helped me a lot with my questions over at wordpress.stackexchange.com
+
+And many more thanks to all the [developers on GitHub](https://github.com/mtoensing/simpletoc/graphs/contributors) who helped me making SimpleTOC what it is today!
 
 Thanks to Quintus Valerius Soranus for inventing the Table of Contents around 100 BC. 
