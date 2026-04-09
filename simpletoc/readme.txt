@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: TOC, Table of Contents, Block, Accessibility, Table
 Requires at least: 5.9
 Tested up to: 6.9
-Stable tag: 7.0.0
+Stable tag: 7.0.1
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -71,6 +71,11 @@ This plugin is designed & developed for WCAG 2.2 level AA conformance. The plugi
 SimpleTOC is open-source and developed on [GitHub Pages](https://github.com/mtoensing/SimpleTOC). If you find a bug or have an idea for a feature please feel free to contribute and create a pull request. 
 
 == Changelog ==
+
+= 7.0.1 =
+* Added: Direct link from the Advanced Features sidebar to the global SimpleTOC settings.
+* Fixed: Global settings link now appears reliably in the editor sidebar.
+* Changed: Wrapper toggle now reflects the automatic wrapper state while box style is active.
 
 = 7.0.0 =
 * Added: Box style option in the block sidebar with a color picker and default gray background.
