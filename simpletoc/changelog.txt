@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 7.1.1 =
+* Fixed: Prevented WordPress HTML API notices when nested block content is not a string.
+* Fixed: Escaped TOC links and titles before rendering them.
+* Fixed: Preserved legacy SimpleTOC block validity in the WordPress editor.
+
 = 7.1.0 =
 * Fixed: Avoid DOMDocument HTML parsing for highlighted heading markup by using the WordPress HTML API.
 * Changed: Minimum required WordPress version is now 6.2.
