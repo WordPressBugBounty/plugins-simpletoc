@@ -3,7 +3,7 @@
  * Plugin Name:   SimpleTOC - Table of Contents Block
  * Plugin URI:    https://marc.tv/simpletoc-wordpress-inhaltsverzeichnis-plugin-gutenberg/
  * Description:   SEO-friendly Table of Contents Gutenberg block. No JavaScript or CSS by default.
- * Version:       7.3.0
+ * Version:       7.3.1
  * Requires at least: 6.2
  * Requires PHP: 7.3
  * Author:        Marc Tönsing
@@ -21,7 +21,7 @@ require_once __DIR__ . '/simpletoc-admin-settings.php';
 require_once __DIR__ . '/simpletoc-class-headline-ids.php';
 
 const DEFAULT_BOX_COLOR = '#ebebeb';
-const SIMPLETOC_VERSION = '7.3.0';
+const SIMPLETOC_VERSION = '7.3.1';
 
 /**
  * Prevents direct execution of the plugin file.
@@ -476,10 +476,9 @@ function simpletoc_sanitize_string( $string_to_sanitize ) {
 	// remove umlauts and accents.
 	$string_without_accents = remove_accents( $html_wo_nbs );
 	// Sanitizes a title, replacing whitespace and a few other characters with dashes.
-	$sanitized_string = sanitize_title_with_dashes( $string_without_accents );
-	// Encode for use in an url.
-	$urlencoded = rawurlencode( $sanitized_string );
-	return $urlencoded;
+	// Already returns a URL-safe, percent-encoded slug for non-ASCII input, so no
+	// further rawurlencode() is needed (that would double-encode the string).
+	return sanitize_title_with_dashes( $string_without_accents );
 }
 
 /**
