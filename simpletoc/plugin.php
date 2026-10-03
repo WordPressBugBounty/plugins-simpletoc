@@ -3,7 +3,7 @@
  * Plugin Name:   SimpleTOC - Table of Contents Block
  * Plugin URI:    https://marc.tv/simpletoc-wordpress-inhaltsverzeichnis-plugin-gutenberg/
  * Description:   SEO-friendly Table of Contents Gutenberg block. No JavaScript or CSS by default.
- * Version:       7.4.0
+ * Version:       7.4.1
  * Requires at least: 6.2
  * Requires PHP: 7.3
  * Author:        Marc Tönsing
@@ -21,7 +21,7 @@ require_once __DIR__ . '/simpletoc-admin-settings.php';
 require_once __DIR__ . '/simpletoc-class-headline-ids.php';
 
 const DEFAULT_BOX_COLOR = '#ebebeb';
-const SIMPLETOC_VERSION = '7.4.0';
+const SIMPLETOC_VERSION = '7.4.1';
 
 /**
  * Prevents direct execution of the plugin file.
@@ -225,7 +225,13 @@ function add_ids_to_blocks_recursive( $blocks ) {
 	$inner_html_id_instance    = new SimpleTOC_Headline_Ids();
 	$inner_content_id_instance = new SimpleTOC_Headline_Ids();
 
+	$ignored_blocks = simpletoc_get_excluded_blocks();
+
 	foreach ( $blocks as &$block ) {
+		if ( isset( $block['blockName'] ) && in_array( $block['blockName'], $ignored_blocks, true ) ) {
+			continue;
+		}
+
 		if ( isset( $block['blockName'] ) && in_array( $block['blockName'], $supported_blocks, true ) && isset( $block['innerHTML'] ) && isset( $block['innerContent'] ) && isset( $block['innerContent'][0] ) ) {
 			$block['innerHTML']       = add_anchor_attribute( $block['innerHTML'], $inner_html_id_instance, $block );
 			$block['innerContent'][0] = add_anchor_attribute( $block['innerContent'][0], $inner_content_id_instance, $block );
@@ -371,6 +377,20 @@ function simpletoc_add_pagenumber( $blocks, $headings ) {
 }
 
 /**
+ * Gets blocks excluded from both anchor generation and TOC collection.
+ *
+ * Query templates render repeatedly in a different post context.
+ *
+ * @return string[] Excluded block names.
+ */
+function simpletoc_get_excluded_blocks() {
+	return apply_filters(
+		'simpletoc_excluded_blocks',
+		array( 'core/query', 'generateblocks/query-loop', 'generateblocks/query' )
+	);
+}
+
+/**
  * Return all headings with a recursive walk through all blocks.
  * This includes groups and reusable block with groups within reusable blocks.
  *
@@ -385,7 +405,7 @@ function filter_headings_recursive( $blocks ) {
 	}
 
 	// allow developers to ignore specific blocks.
-	$ignored_blocks = apply_filters( 'simpletoc_excluded_blocks', array() );
+	$ignored_blocks = simpletoc_get_excluded_blocks();
 
 	foreach ( $blocks as $inner_block ) {
 		if ( is_array( $inner_block ) ) {
