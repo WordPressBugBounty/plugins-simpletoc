@@ -3,7 +3,7 @@ Contributors: MarcDK
 Tags: TOC, Table of Contents, Block, Accessibility, Table
 Requires at least: 6.2
 Tested up to: 7.1
-Stable tag: 7.4.1
+Stable tag: 7.4.3
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,13 @@ The maximum depth of the toc can be configured in in the blocks' sidebar among m
 
 > "Simple yet powerful. Great plugin that does exactly what you need."
 — [@mixey on wordpress.org](https://wordpress.org/support/topic/simple-yet-powerful-106/)
+
+= In the press =
+
+SimpleTOC ranked #1 in WP Collections' October 2026 comparison of seven free WordPress table of contents plugins.
+
+> "On the block editor, use SimpleTOC, the lightest table of contents we measured."
+— [WP Collections](https://wp-collections.com/best-free-table-of-contents-plugins-wordpress/)
 
 = Accessibility =
 
@@ -64,12 +71,6 @@ Hidden TOCs use native `<details>` and `<summary>` semantics without extra ARIA 
 * Select a heading level or turn it into a paragraph.
 * Disable the h2 heading of the TOC block and add your own.
 
-= Highlight the current section =
-
-Enable "Highlight current section" under Advanced Features in the SimpleTOC block settings. The link for the current section is underlined as visitors scroll. This option is off by default. To enable it for all blocks, turn on "Force highlight current section" under Settings > SimpleTOC. The global setting takes precedence over individual block settings. Developers can override the global setting with the `simpletoc_scroll_spy_enabled` filter.
-
-This feature uses native CSS `scroll-target-group` and `:target-current`. Browser support is limited. Browsers without support keep the normal table of contents and working links. No JavaScript fallback or polyfill is included. Highlighting applies to headings on the current page and does not make the table of contents sticky.
-
 = Compatibility =
 
 * GeneratePress and Rank Math support.
@@ -80,8 +81,11 @@ This feature uses native CSS `scroll-target-group` and `:target-current`. Browse
 SimpleTOC is open-source and developed on [GitHub Pages](https://github.com/mtoensing/SimpleTOC). If you find a bug or have an idea for a feature please feel free to contribute and create a pull request. 
 
 == Changelog ==
-= 7.4.1 =
-* Fixed: Headings inside Query Loop blocks (core/query, GenerateBlocks) no longer receive duplicate anchor IDs from the surrounding page and are no longer listed in the table of contents. Fixes issue #90.
+
+= 7.4.3 =
+* Fixed: Navigation landmarks use the custom table of contents title as their accessible label. Fixes issue #93.
+* Fixed: Core Accordion Heading blocks are included in the table of contents with working anchors, excluding decorative icons. Fixes issue #91.
+
 
 == Installation ==
 
